@@ -94,7 +94,15 @@ def plot_house(path):
         labels.append(house)
         values.append(stats.get(house))
     plt.pie(values, labels=labels)
+    save = plt.gcf()
+    save.savefig("Save.pdf", format="pdf")
     plt.show()
+
+
+# def save_house(path):
+#         figure = plt.gcf()
+#     if args.save:
+#         figure.savefig(args.save, format="pdf")
 
 
 def main(arguments):
