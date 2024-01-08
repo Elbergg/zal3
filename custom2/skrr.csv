@@ -1,4 +1,4 @@
 file,rows,unique,count
-data.json,2,,8
-diary.json,25,,75
-todos.json,200,,800
+data.json,2,columns rows unique count-per-column,8
+diary.json,25,id content date,75
+todos.json,200,userId id title completed,800

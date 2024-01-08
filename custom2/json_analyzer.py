@@ -2,6 +2,7 @@ import json
 import argparse
 import sys
 import csv
+import os
 
 """
 simple json analyzer - analizuje jsony
@@ -67,6 +68,7 @@ def main(arguments):
     parser.add_argument("--unique", action="store_true")
     parser.add_argument("--count", action="store_true")
     parser.add_argument("--out")
+    parser.add_argument("-f", action="store_true")
     args = parser.parse_args(arguments[1:])
     files = args.files
     for file in files:
@@ -77,7 +79,19 @@ def main(arguments):
         if args.count:
             print(count(file))
     if args.out:
-        save_to_csv(files, args.out, args.rows, args.unique, args.count)
+        if os.path.isfile(args.out):
+            if not args.f:
+                ask = input("halo czy chcesz nadpisac plik?[Y/N] ")
+                if ask == "Y":
+                    save_to_csv(
+                        files, args.out, args.rows, args.unique, args.count
+                    )
+                else:
+                    return
+            else:
+                save_to_csv(
+                    files, args.out, args.rows, args.unique, args.count
+                )
 
 
 if __name__ == "__main__":

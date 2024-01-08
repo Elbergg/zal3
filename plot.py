@@ -5,7 +5,7 @@ import json
 from datetime import timedelta, datetime
 
 
-def read_from_json(path, timestamp, values, fro=0, to=99999):
+def read_from_json(path, timestamp, values, fro="0", to="99999"):
     charts = []
     with open(path, "r") as file_handle:
         data = json.load(file_handle)
@@ -14,9 +14,9 @@ def read_from_json(path, timestamp, values, fro=0, to=99999):
             return_data2 = []
             for row in data:
                 try:
-                    if datetime.fromisoformat(row[timestamp]) > datetime.fromisoformat(
-                        fro
-                    ) and datetime.fromisoformat(
+                    if datetime.fromisoformat(
+                        row[timestamp]
+                    ) > datetime.fromisoformat(fro) and datetime.fromisoformat(
                         row[timestamp]
                     ) < datetime.fromisoformat(
                         to
@@ -42,12 +42,18 @@ def main(arguments):
     parser = argparse.ArgumentParser()
     parser.add_argument("path")
     parser.add_argument("--timestamp", default="timestamp")
-    parser.add_argument("--value", default="value", nargs="+")
-    parser.add_argument("--fro")
-    parser.add_argument("--to")
+    parser.add_argument(
+        "--value",
+        default=["value"],
+        nargs="+",
+    )
+    parser.add_argument("--fro", default="1980-01-01")
+    parser.add_argument("--to", default="9999-12-12")
     args = parser.parse_args(arguments[1:])
     if args.path:
-        data = read_from_json(args.path, args.timestamp, args.value, args.fro, args.to)
+        data = read_from_json(
+            args.path, args.timestamp, args.value, args.fro, args.to
+        )
         generate_plot(data)
 
 

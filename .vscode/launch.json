@@ -11,7 +11,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["username.csv", "username-password-recovery-code.csv", "--out", "skrr.json"]
+            "args": ["data.json"]
         }
     ]
 }
