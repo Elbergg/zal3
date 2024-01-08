@@ -34,18 +34,21 @@ def unique(path):
     return final
 
 
-def save_to_csv(
-    files, new_file, brows=None, bunique=None, bcount=None
-):
+def save_to_csv(files, new_file, brows=None, bunique=None, bcount=None):
     with open(new_file, "w") as file_handler:
-        fieldnames = ["file, rows, unique, count"]
+        fieldnames = ["file", "rows", "unique", "count"]
         writer = csv.DictWriter(file_handler, fieldnames)
         writer.writeheader()
         for file in files:
             data = {}
             data.update({"file": file})
-            if :
-
+            if brows:
+                data.update({"rows": rows(file)})
+            if bunique:
+                data.update({"unique": unique(file)})
+            if bcount:
+                data.update({"count": count(file)})
+            writer.writerow(data)
 
 
 def count(path):

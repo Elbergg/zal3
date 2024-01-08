@@ -11,7 +11,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["diary.json", "data.json", "todos.json", "--count"]
+            "args": ["diary.json", "data.json", "todos.json", "--out", "skrr.csv"]
         }
     ]
 }
