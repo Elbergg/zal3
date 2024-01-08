@@ -1,0 +1,12 @@
+
+{
+    "username.csv": {
+        "columns": [
+            "Username",
+            " Identifier",
+            "First name",
+            "Last name"
+        ],
+        "rows": 5
+    }
+}

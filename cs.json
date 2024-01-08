@@ -1,0 +1,38 @@
+
+{
+    "username.csv": {
+        "columns": [
+            "Username",
+            " Identifier",
+            "First name",
+            "Last name"
+        ],
+        "rows": 5
+    }
+}
+{
+    "username.csv": {
+        "columns": [
+            "Username",
+            " Identifier",
+            "First name",
+            "Last name"
+        ],
+        "rows": 5
+    }
+}
+{
+    "username-password-recovery-code.csv": {
+        "columns": [
+            "Username",
+            " Identifier",
+            "One-time password",
+            "Recovery code",
+            "First name",
+            "Last name",
+            "Department",
+            "Location"
+        ],
+        "rows": 4
+    }
+}
