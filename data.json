@@ -1,0 +1,27 @@
+[   
+    {
+        "timestamp": "2021-01-10 11:24:03",
+        "value": 10,
+        "additional_value": 5
+    },
+    {
+        "timestamp": "2021-01-11 11:24:03",
+        "value": 10,
+        "additional_value": 5
+    },
+    {
+        "timestamp": "2021-01-12 14:22:01",
+        "value": 14,
+        "additional_value": 8
+    },
+    {
+        "timestamp": "2021-01-13 16:03:02",
+        "value": 8,
+        "additional_value": 15
+    },
+    {
+        "timestamp": "2021-01-14 16:03:02",
+        "value": 8,
+        "additional_value": 15
+    }
+]

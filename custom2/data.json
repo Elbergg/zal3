@@ -1,0 +1,123 @@
+[
+    {
+        "columns": [
+            "Username",
+            " Identifier",
+            "First name",
+            "Last name"
+        ],
+        "rows": 5,
+        "unique": {
+            "Username": 5,
+            " Identifier": 5,
+            "First name": 5,
+            "Last name": 5
+        },
+        "count-per-column": {
+            "Username": {
+                "booker12": 1,
+                "grey07": 1,
+                "johnson81": 1,
+                "jenkins46": 1,
+                "smith79": 1
+            },
+            " Identifier": {
+                "9012": 1,
+                "2070": 1,
+                "4081": 1,
+                "9346": 1,
+                "5079": 1
+            },
+            "First name": {
+                "Rachel": 1,
+                "Laura": 1,
+                "Craig": 1,
+                "Mary": 1,
+                "Jamie": 1
+            },
+            "Last name": {
+                "Booker": 1,
+                "Grey": 1,
+                "Johnson": 1,
+                "Jenkins": 1,
+                "Smith": 1
+            }
+        }
+    },
+    {
+        "columns": [
+            "Username",
+            " Identifier",
+            "One-time password",
+            "Recovery code",
+            "First name",
+            "Last name",
+            "Department",
+            "Location"
+        ],
+        "rows": 4,
+        "unique": {
+            "Username": 5,
+            " Identifier": 5,
+            "One-time password": 5,
+            "Recovery code": 5,
+            "First name": 5,
+            "Last name": 5,
+            "Department": 3,
+            "Location": 2
+        },
+        "count-per-column": {
+            "Username": {
+                "booker12": 1,
+                "grey07": 1,
+                "johnson81": 1,
+                "jenkins46": 1,
+                "smith79": 1
+            },
+            " Identifier": {
+                "9012": 1,
+                "2070": 1,
+                "4081": 1,
+                "9346": 1,
+                "5079": 1
+            },
+            "One-time password": {
+                "12se74": 1,
+                "04ap67": 1,
+                "30no86": 1,
+                "14ju73": 1,
+                "09ja61": 1
+            },
+            "Recovery code": {
+                "rb9012": 1,
+                "lg2070": 1,
+                "cj4081": 1,
+                "mj9346": 1,
+                "js5079": 1
+            },
+            "First name": {
+                "Rachel": 1,
+                "Laura": 1,
+                "Craig": 1,
+                "Mary": 1,
+                "Jamie": 1
+            },
+            "Last name": {
+                "Booker": 1,
+                "Grey": 1,
+                "Johnson": 1,
+                "Jenkins": 1,
+                "Smith": 1
+            },
+            "Department": {
+                "Sales": 1,
+                "Depot": 1,
+                "Engineering": 1
+            },
+            "Location": {
+                "Manchester": 1,
+                "London": 1
+            }
+        }
+    }
+]
