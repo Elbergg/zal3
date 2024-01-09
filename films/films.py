@@ -5,12 +5,12 @@ from pathlib import Path
 
 
 def search_file(path, name, titlelist, duplicates_list):
-    with open(path, "r") as file_handler:
-        reader2 = csv.reader(file_handler)
-        for row2 in reader2:
-            if row2[0] == name:
-                description_list = row2[4:]
-                description = "".join(description_list)
+    # with open(path, "r") as file_handler:
+    #     reader2 = csv.reader(file_handler)
+    #     for row2 in reader2:
+    #         if row2[0] == name:
+    #             description_list = row2[4:]
+    #             description = "".join(description_list)
     with open(path, "r") as file_handler2:
         reader = csv.DictReader(file_handler2)
         for row in reader:
@@ -18,6 +18,7 @@ def search_file(path, name, titlelist, duplicates_list):
             year = row[" year"]
             genre = row[" genre"]
             duration = row[" duration"]
+            description = row[" description"]
             if row["title"] == name:
                 info = f"- {title}\n-{year}\n-{genre}\n-{duration}\n-{description}"
                 print(info)
