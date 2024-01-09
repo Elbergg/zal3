@@ -37,7 +37,7 @@ def main(arguments):
     titles = []
     duplicates = []
     if args.r:
-        path = Path()
+        path = Path(args.path)
         for file in path.rglob("*.csv"):
             search_file(file, name, titles, duplicates)
     else:

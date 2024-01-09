@@ -11,7 +11,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["--lib-in-yaml", "got.yaml"]
+            "args": ["quotes6.csv", "--lib"]
         }
     ]
 }

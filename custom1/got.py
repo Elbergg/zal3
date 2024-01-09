@@ -3,7 +3,6 @@ import sys
 import requests
 import csv
 import yaml
-import json
 from matplotlib import pyplot as plt
 
 """
