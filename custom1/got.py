@@ -2,6 +2,8 @@ import argparse
 import sys
 import requests
 import csv
+import yaml
+import json
 from matplotlib import pyplot as plt
 
 """
@@ -40,6 +42,12 @@ def create_lib(path):
             )
 
 
+def lib_in_yaml(path):
+    quotes_list = quotes()
+    with open(path, "w") as file_handler:
+        yaml.dump_all(quotes_list, file_handler)
+
+
 def stats_get(path):
     with open(path, "r") as file_handler:
         reader = csv.DictReader(file_handler)
@@ -59,6 +67,17 @@ def stats_print(path):
     for name in house_dict:
         info = f"{name} - {house_dict.get(name)} quotes"
         print(info)
+
+
+def stats_from_yaml(path):
+    with open(path, "r") as file_handler:
+        data = yaml.load_all(file_handler)
+        characters = []
+        for row in data:
+            name = row["character"]["name"]
+            characters.append(name)
+        set_of_characters = set(characters)
+    print(set_of_characters)
 
 
 def plot_pie(path):
@@ -107,13 +126,16 @@ def plot_house(path):
 
 def main(arguments):
     parser = argparse.ArgumentParser()
-    parser.add_argument("path")
+    parser.add_argument("path", nargs="?")
     parser.add_argument("--lib", action="store_true")
     parser.add_argument("--stats", action="store_true")
     parser.add_argument("--pie-plot", dest="pie_plot", action="store_true")
     parser.add_argument("--plot-house", dest="plot_house", action="store_true")
+    parser.add_argument("--lib-in-yaml")
+    parser.add_argument("--stats-yaml", action="store_true")
     args = parser.parse_args(arguments[1:])
-    path = args.path
+    if args.path:
+        path = args.path
     if args.lib:
         create_lib(path)
     if args.stats:
@@ -122,6 +144,10 @@ def main(arguments):
         plot_pie(path)
     if args.plot_house:
         plot_house(path)
+    if args.lib_in_yaml:
+        lib_in_yaml(args.lib_in_yaml)
+    if args.stats_yaml:
+        stats_from_yaml(path)
 
 
 if __name__ == "__main__":

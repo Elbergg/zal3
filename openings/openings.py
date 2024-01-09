@@ -18,13 +18,16 @@ def check_openings(openings, game):
     list_of_all = load_game(game)
     with open(openings, "r") as file_handler:
         reader = csv.DictReader(file_handler)
-        mathcing_rows = []
+        matching_rows = []
         for row in reader:
             moves_list = row["moves"]
             moves_list_split = moves_list
             if moves_list_split in list_of_all:
-                mathcing_rows.append(moves_list_split)
-    best_opening = max(mathcing_rows)
+                matching_rows.append(moves_list_split)
+    if matching_rows == []:
+        print("no openings found")
+        return
+    best_opening = max(matching_rows)
     with open(openings, "r") as file_handler:
         reader = csv.DictReader(file_handler)
         for row in reader:

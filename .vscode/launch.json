@@ -11,7 +11,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["data.json"]
+            "args": ["data.json", "--value", "value", "additional_value"]
         }
     ]
 }
