@@ -56,8 +56,57 @@ def plot_authors(path):
     plt.show()
 
 
-# def show_by_epoch(path, epoch)
-# boo
+def get_stats_on_epoch(path):
+    with open(path, "r") as file_handler:
+        data = yaml.load_all(file_handler)
+        epochs = []
+        for row in data:
+            epochs.append(row["epoch"])
+        ancient = epochs.count("Starożytność")
+        medieval = epochs.count("Średniowiecze")
+        renesaince = epochs.count("Renesans")
+        baroq = epochs.count("Barok")
+        enlightment = epochs.count("Oświecenie")
+        romantism = epochs.count("Romantyzm")
+        positivism = epochs.count("Pozytywizm")
+        modernizm = epochs.count("Modernizm")
+        interwar = epochs.count("Dwudziestolecie międzywojenne")
+    return [
+        ancient,
+        medieval,
+        renesaince,
+        baroq,
+        enlightment,
+        romantism,
+        positivism,
+        modernizm,
+        interwar,
+    ]
+
+
+def plot_epoch(path):
+    data = get_stats_on_epoch(path)
+    labels = [
+        "ancient",
+        "medieval",
+        "renesaince",
+        "baroq",
+        "enlightment",
+        "romantism",
+        "positivism",
+        "modernizm",
+        "interwar",
+    ]
+    plt.pie(data, labels=labels, autopct="%1.1f%%")
+    plt.show()
+
+
+def show_by_epoch(path, epoch):
+    with open(path, "r") as file_handler:
+        data = yaml.load_all(file_handler)
+        for row in data:
+            if row["epoch"].lower() == epoch.lower():
+                print(row["title"])
 
 
 def main(arguments):
@@ -68,6 +117,7 @@ def main(arguments):
     parser.add_argument("--plot-authors", action="store_true")
     parser.add_argument("--plot-kind", action="store_true")
     parser.add_argument("--epoch")
+    parser.add_argument("--plot-epoch", action="store_true")
     args = parser.parse_args(arguments[1:])
     if args.path:
         path = args.path
@@ -81,6 +131,8 @@ def main(arguments):
         plot_kind(path)
     if args.epoch:
         show_by_epoch(path, args.epoch)
+    if args.plot_epoch:
+        plot_epoch(path)
 
 
 if __name__ == "__main__":
